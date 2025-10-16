@@ -21,57 +21,49 @@ El objetivo fue tomar datos desde un archivo Excel, convertirlos en tablas organ
 
 ---
 
-## 📂 Estructura del proyecto
 ecommerce/
+├── 🧩 etl/                          # Proceso ETL (Extract, Transform, Load)
+│   ├── 🐍 conversor.py              # Script que convierte datos desde Excel a SQLite
+│   └── 📊 datos.xlsx                # Fuente de datos original
 │
-├── etl/ # Proceso ETL
-│ ├── conversor.py # Script que convierte datos desde Excel a la DB
-│ └── datos.xlsx # Fuente de datos original
+├── 🚀 app/                          # Aplicación principal FastAPI
+│   ├── 🌐 api/                      # Endpoints y rutas de la API
+│   │   └── 🧠 endpoints.py
+│   │
+│   ├── 🎨 static/                   # Recursos estáticos (CSS, JS, imágenes)
+│   ├── 🧱 templates/                # Plantillas HTML (Frontend)
+│   │
+│   ├── ⚙️ core.py                   # Configuración de base de datos y sesión
+│   ├── 🗂️ models.py                 # Modelos SQLAlchemy
+│   ├── 📦 schemas.py                # Modelos Pydantic (serialización)
+│   ├── 🏁 main.py                   # Punto de entrada principal (crea app y rutas)
+│   └── 🧮 productos.db              # Base de datos resultante
 │
-├── app/
-│ ├── api/
-│ │ └── endpoints.py # Endpoints FastAPI que exponen la información
-│ ├── static/ # Recursos estáticos (CSS, JS, imágenes)
-│ ├── templates/ # Plantillas HTML
-│ ├── core.py # Configuración de base de datos y sesión
-│ ├── models.py # Definición de modelos SQLAlchemy
-│ ├── schemas.py # Modelos Pydantic (serialización)
-│ ├── main.py # Punto de entrada principal (crea app y rutas)
-│ └── productos.db # Base de datos resultante
+└── 📜 README.md                     # Documentación del proyecto
+
 
 
 ## ⚙️ Instalación y ejecución
-
 1. **Clonar el repositorio**
-   ```bash
-   git clone https://github.com/tuusuario/ecommerce.git
-   cd ecommerce
+git clone https://github.com/tuusuario/ecommerce.git
+cd ecommerce
   
 2. **Crear entorno virtual**
 python -m venv venv
 source venv/bin/activate     # En Linux / Mac
 venv\Scripts\activate        # En Windows
 
-
 3. **Instalar dependencias**
-
 pip install fastapi uvicorn sqlalchemy pydantic openpyxl pandas jinja2
 
-
 4. **Ejecutar el proceso ETL**
-
 python etl/conversor.py
-
-
 Este script toma los datos desde datos.xlsx, los clasifica por categoría y los inserta en la base de datos productos.db.
 
 5. **Iniciar la aplicación web**
-
 uvicorn app.main:app --reload
 
-
 6. **Abrir en el navegador**
-
 http://127.0.0.1:8000
 
 
