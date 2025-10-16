@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Productos</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/static/img/favicon.png" type="image/png">
+
+</head>
+<body>
+
+<div class="main-content">
+    <h1>Productos Clasificados</h1>
+
+    <div class="tabla-container">
+        <!-- Botonera vertical -->
+        <div class="botonera">
+            {% set tablas = [
+                'papel_higienico_cocina', 'bolsas_envases', 'limpieza_hogar', 
+                'limpieza_quimica', 'insecticidas', 'cuidado_personal', 
+                'utensilios_plasticos', 'otros'
+            ] %}
+
+            {% for tabla in tablas %}
+                {% set count = data[tabla]|length %}
+                {% set loop_index = loop.index0 %}  {# 0-based index #}
+
+                {% if loop_index == 0 %}
+                    {% set nombre_mostrar = 'PAPEL HIGIENICO/COCINA' %}
+                {% elif loop_index == 1 %}
+                    {% set nombre_mostrar = 'BOLSAS/ENVASES' %}
+                {% else %}
+                    {% set nombre_mostrar = tabla.replace('_',' ').upper() %}
+                {% endif %}
+
+                <button class="btn-tabla btn-{{ tabla }}" data-tabla="{{ tabla }}">
+                    {{ nombre_mostrar }} - <span class="count">{{ count }}</span>
+                </button>
+            {% endfor %}
+        </div>
+
+        <!-- Contenedor de lista -->
+        <ul id="lista-desplegada" class="tabla-lista"></ul>
+    </div>
+
+    <!-- Botón volver al final -->
+    <div class="volver-container">
+        <a href="/" class="btn-volver">← Volver al Inicio</a>
+    </div>
+</div>
+
+<footer class="footer-principal">
+    &copy; 2025 - Todos los derechos reservados | Desarrollado por Sebastián Medina
+</footer>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+/* Reset general */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin: 0;
+
+    background: linear-gradient(135deg, rgba(31,41,55,0.85), rgba(17,24,39,0.85));
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-image 1s ease-in-out;
+}
+
+
+
+
+.main-content {
+    flex: 1; /* ocupa todo el espacio disponible */
+    padding: 20px;
+}
+
+/* Footer siempre al fondo */
+.footer-principal {
+    text-align: center;
+    padding: 30px;
+    background: rgba(0,0,0,0.0);
+    margin-top: auto; /* fuerza a que se pegue abajo */
+}
+
+
+
+h1 {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 2.5rem;
+    color: #f59e0b;
+}
+
+/* Contenedor principal */
+.tabla-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Botonera vertical */
+.botonera {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 220px;
+}
+
+/* Botones estilo div */
+.btn-tabla {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    
+    padding: 12px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    transition: opacity 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover */
+.btn-tabla:hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+/* Gradientes por categoría */
+.btn-papel_higienico_cocina { background: linear-gradient(45deg, #6366f1, #4f46e5); }
+.btn-bolsas_envases { background: linear-gradient(45deg, #34d399, #10b981); }
+.btn-limpieza_hogar { background: linear-gradient(45deg, #fbbf24, #f59e0b); }
+.btn-limpieza_quimica { background: linear-gradient(45deg, #a78bfa, #8b5cf6); }
+.btn-insecticidas { background: linear-gradient(45deg, #f87171, #ef4444); }
+.btn-cuidado_personal { background: linear-gradient(45deg, #f472b6, #ec4899); }
+.btn-utensilios_plasticos { background: linear-gradient(45deg, #fb923c, #f97316); }
+.btn-otros { background: linear-gradient(45deg, #9ca3af, #6b7280); }
+
+/* Lista de productos */
+.tabla-lista {
+    flex: 2;
+    max-height: 0;
+    overflow-y: hidden; /* evitar scroll cuando está cerrada */
+    transition: max-height 0.5s ease, padding 0.3s ease;
+    background: transparent;
+    padding: 0; /* sin padding cerrado */
+    border-radius: 12px;
+    width: 100%;
+}
+
+.tabla-lista.open {
+    max-height: 800px;
+    padding: 10px; /* padding solo cuando está abierta */
+    overflow-y: auto; /* scroll solo cuando está abierta */
+}
+
+.tabla-lista li {
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.1);
+    font-size: 1rem;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.tabla-lista li:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateX(5px);
+}
+
+/* Scrollbar personalizado */
+.tabla-lista::-webkit-scrollbar { width: 8px; }
+.tabla-lista::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 6px; }
+.tabla-lista::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 6px; }
+
+/* Header */
+.header-principal {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.header-principal h1 {
+    color: #f59e0b;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.btn-principal {
+    background: linear-gradient(45deg, #6366f1, #4f46e5);
+    padding: 15px 30px;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+.btn-principal:hover {
+    opacity: 0.85;
+    transform: scale(1.05);
+}
+
+/* Galería */
+.galeria-principal {
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.galeria-principal h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap;        /* Permite que las imágenes se acomoden en varias filas */
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    gap: 20px;               /* Espacio entre imágenes */
+    max-width: 1100px;       /* Ajusta según tu diseño */
+    margin: 0 auto;          /* Centra la galería */
+}
+
+.galeria img {
+    flex: 1 1 calc(20% - 20px); /* Cada imagen ocupa 20% del ancho menos el gap */
+    max-width: calc(20% - 20px);
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    transition: transform 0.3s;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+}
+
+
+
+/* Contacto */
+.contacto-principal {
+    padding: 50px 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.contacto-principal h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contacto-principal form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contacto-principal input,
+.contacto-principal textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+}
+
+.contacto-principal button {
+    background: linear-gradient(45deg, #f472b6, #ec4899);
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+.contacto-principal button:hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+}
+
+/* Footer */
+.footer-principal {
+    text-align: center;
+    padding: 30px;
+    background: rgba(0,0,0,0.3);
+    margin-top: 50px;
+}
+
+/* Botón volver mejorado */
+.btn-volver {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 999px; /* estilo “píldora” */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.btn-volver:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* Contenedor centrado para el botón volver */
+.volver-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.btn-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    z-index: 1000;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
