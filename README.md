@@ -20,7 +20,7 @@ El objetivo fue tomar datos desde un archivo Excel, convertirlos en tablas organ
 
 
 ---
-
+```bash
 ecommerce/
 ├── 🧩 etl/                          # Proceso ETL (Extract, Transform, Load)
 │   ├── 🐍 conversor.py              # Script que convierte datos desde Excel a SQLite
